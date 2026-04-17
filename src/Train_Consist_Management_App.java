@@ -1,15 +1,18 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 
-public class Train_Consist_Management_App {
-
+public class UC3 {
     public static void main(String[] args) {
 
-        System.out.println("=== Train Consist Management App ===");
+        System.out.println("=== Train Consist Management - UC3 ===");
 
-        List<String> trainConsist = new ArrayList<>();
+        HashSet<String> bogieIds = new HashSet<>();
 
-        System.out.println("Train consist initialized.");
-        System.out.println("Initial number of bogies: " + trainConsist.size());
+        bogieIds.add("BG101");
+        bogieIds.add("BG102");
+        bogieIds.add("BG103");
+        bogieIds.add("BG101");
+        bogieIds.add("BG102");
+
+        System.out.println(bogieIds);
     }
 }
