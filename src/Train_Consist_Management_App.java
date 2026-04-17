@@ -1,15 +1,18 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashSet;
 
-public class Train_Consist_Management_App {
-
+public class UC5 {
     public static void main(String[] args) {
 
-        System.out.println("=== Train Consist Management App ===");
+        System.out.println("=== Train Consist Management - UC5 ===");
 
-        List<String> trainConsist = new ArrayList<>();
+        LinkedHashSet<String> formation = new LinkedHashSet<>();
 
-        System.out.println("Train consist initialized.");
-        System.out.println("Initial number of bogies: " + trainConsist.size());
+        formation.add("Engine");
+        formation.add("Sleeper");
+        formation.add("Cargo");
+        formation.add("Guard");
+        formation.add("Sleeper");
+
+        System.out.println(formation);
     }
 }
