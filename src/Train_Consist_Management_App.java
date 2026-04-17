@@ -1,15 +1,30 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Train_Consist_Management_App {
+class GoodsBogie {
+    String type;
+    String cargo;
 
+    GoodsBogie(String type, String cargo) {
+        this.type = type;
+        this.cargo = cargo;
+    }
+}
+
+public class UC12 {
     public static void main(String[] args) {
 
-        System.out.println("=== Train Consist Management App ===");
+        System.out.println("=== Train Consist Management - UC12 ===");
 
-        List<String> trainConsist = new ArrayList<>();
+        List<GoodsBogie> bogies = new ArrayList<>();
 
-        System.out.println("Train consist initialized.");
-        System.out.println("Initial number of bogies: " + trainConsist.size());
+        bogies.add(new GoodsBogie("Cylindrical", "Petroleum"));
+        bogies.add(new GoodsBogie("Box", "Coal"));
+        bogies.add(new GoodsBogie("Cylindrical", "Petroleum"));
+
+        boolean isSafe = bogies.stream()
+                .allMatch(b -> !b.type.equals("Cylindrical") || b.cargo.equals("Petroleum"));
+
+        System.out.println("Safety Compliance: " + isSafe);
     }
 }
