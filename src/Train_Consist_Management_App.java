@@ -1,15 +1,36 @@
-import java.util.ArrayList;
-import java.util.List;
+class InvalidCapacityException extends Exception {
+    InvalidCapacityException(String message) {
+        super(message);
+    }
+}
 
-public class Train_Consist_Management_App {
+class PassengerBogie {
+    String name;
+    int capacity;
 
+    PassengerBogie(String name, int capacity) throws InvalidCapacityException {
+        if (capacity <= 0) {
+            throw new InvalidCapacityException("Capacity must be greater than zero");
+        }
+        this.name = name;
+        this.capacity = capacity;
+    }
+}
+
+public class UC14 {
     public static void main(String[] args) {
 
-        System.out.println("=== Train Consist Management App ===");
+        System.out.println("=== Train Consist Management - UC14 ===");
 
-        List<String> trainConsist = new ArrayList<>();
+        try {
+            PassengerBogie b1 = new PassengerBogie("Sleeper", 72);
+            PassengerBogie b2 = new PassengerBogie("AC Chair", -10);
 
-        System.out.println("Train consist initialized.");
-        System.out.println("Initial number of bogies: " + trainConsist.size());
+            System.out.println(b1.name + " : " + b1.capacity);
+            System.out.println(b2.name + " : " + b2.capacity);
+
+        } catch (InvalidCapacityException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
