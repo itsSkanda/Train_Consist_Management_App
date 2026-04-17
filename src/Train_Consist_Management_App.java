@@ -29,11 +29,9 @@ public class UC9 {
         Map<String, List<Bogie>> grouped = bogies.stream()
                 .collect(Collectors.groupingBy(b -> b.name));
 
-        for (Map.Entry<String, List<Bogie>> entry : grouped.entrySet()) {
-            System.out.println(entry.getKey() + ":");
-            for (Bogie b : entry.getValue()) {
-                System.out.println("  " + b.name + " : " + b.capacity);
-            }
-        }
+        grouped.forEach((key, value) -> {
+            System.out.println(key);
+            value.forEach(b -> System.out.println(b.name + " : " + b.capacity));
+        });
     }
 }
