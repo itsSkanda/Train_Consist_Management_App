@@ -1,15 +1,34 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class Train_Consist_Management_App {
+class Bogie {
+    String name;
+    int capacity;
 
+    Bogie(String name, int capacity) {
+        this.name = name;
+        this.capacity = capacity;
+    }
+}
+
+public class UC8 {
     public static void main(String[] args) {
 
-        System.out.println("=== Train Consist Management App ===");
+        System.out.println("=== Train Consist Management - UC8 ===");
 
-        List<String> trainConsist = new ArrayList<>();
+        List<Bogie> bogies = new ArrayList<>();
 
-        System.out.println("Train consist initialized.");
-        System.out.println("Initial number of bogies: " + trainConsist.size());
+        bogies.add(new Bogie("Sleeper", 72));
+        bogies.add(new Bogie("AC Chair", 56));
+        bogies.add(new Bogie("First Class", 24));
+
+        List<Bogie> filtered = bogies.stream()
+                .filter(b -> b.capacity > 60)
+                .collect(Collectors.toList());
+
+        for (Bogie b : filtered) {
+            System.out.println(b.name + " : " + b.capacity);
+        }
     }
 }
