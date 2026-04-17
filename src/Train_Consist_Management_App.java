@@ -1,15 +1,43 @@
-import java.util.ArrayList;
-import java.util.List;
+class CargoSafetyException extends RuntimeException {
+    CargoSafetyException(String message) {
+        super(message);
+    }
+}
 
-public class Train_Consist_Management_App {
+class GoodsBogie {
+    String type;
+    String cargo;
 
+    GoodsBogie(String type) {
+        this.type = type;
+    }
+
+    void assignCargo(String cargo) {
+        try {
+            if (type.equals("Rectangular") && cargo.equals("Petroleum")) {
+                throw new CargoSafetyException("Unsafe cargo assignment");
+            }
+            this.cargo = cargo;
+            System.out.println("Cargo assigned: " + cargo + " to " + type);
+        } catch (CargoSafetyException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println("Assignment attempt completed");
+        }
+    }
+}
+
+public class UC15 {
     public static void main(String[] args) {
 
-        System.out.println("=== Train Consist Management App ===");
+        System.out.println("=== Train Consist Management - UC15 ===");
 
-        List<String> trainConsist = new ArrayList<>();
+        GoodsBogie b1 = new GoodsBogie("Cylindrical");
+        GoodsBogie b2 = new GoodsBogie("Rectangular");
 
-        System.out.println("Train consist initialized.");
-        System.out.println("Initial number of bogies: " + trainConsist.size());
+        b1.assignCargo("Petroleum");
+        b2.assignCargo("Petroleum");
+
+        System.out.println("Program continues...");
     }
 }
