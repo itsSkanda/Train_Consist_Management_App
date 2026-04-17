@@ -1,15 +1,14 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
-public class Train_Consist_Management_App {
-
+public class UC17 {
     public static void main(String[] args) {
 
-        System.out.println("=== Train Consist Management App ===");
+        System.out.println("=== Train Consist Management - UC17 ===");
 
-        List<String> trainConsist = new ArrayList<>();
+        String[] bogieNames = {"Sleeper", "AC Chair", "First Class", "General", "Luxury"};
 
-        System.out.println("Train consist initialized.");
-        System.out.println("Initial number of bogies: " + trainConsist.size());
+        Arrays.sort(bogieNames);
+
+        System.out.println(Arrays.toString(bogieNames));
     }
 }
